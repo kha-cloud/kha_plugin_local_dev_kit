@@ -1,0 +1,24 @@
+{
+  "name": "kha_plugin_local_dev_kit",
+  "version": "1.0.0",
+  "description": "KhaCloud Plugin development Kit",
+  "main": "run.js",
+  "scripts": {
+    "fetch": "node run.js fetch",
+    "pull": "node run.js pull",
+    "upload": "node run.js upload",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khalil ben zineb",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.2.47",
+    "@vue/component-compiler-utils": "^3.3.0",
+    "axios": "^1.3.4",
+    "comment-json": "^4.2.3",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "devDependencies": {
+    "@vue/cli": "^5.0.8"
+  }
+}
