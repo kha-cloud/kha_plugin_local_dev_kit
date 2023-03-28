@@ -31,6 +31,12 @@ function createEntryJsFile(pluginKey) {
   import Vue from "vue";
   ${components.map((cp) => `import ${cp} from "./${cp}.vue";`).join("\n")}
 
+  console.log("=============================================");
+  console.log("=============================================");
+  console.log("           ${pluginKey} plugin loaded");
+  console.log("=============================================");
+  console.log("=============================================");
+
   const Components = {
     ${components.map((cp) => `${cp}: ${cp}`).join(",\n")}
   };
@@ -54,7 +60,16 @@ async function buildPlugin(pluginKey) {
     exec(command, (error, stdout, stderr) => {
       if (error) {
         console.error(error.message);
-        reject(new Error(error.message));
+        reject("Compilation error");
+        console.log("=========================================================");
+        console.log("=========================================================");
+        console.log("");
+        console.log("To reproduce the error, please run the following command:");
+        console.log("");
+        console.log(command);
+        console.log("");
+        console.log("=========================================================");
+        console.log("=========================================================");
         return;
       }
       if (stderr) {

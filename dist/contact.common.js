@@ -66,8 +66,8 @@ if (typeof window !== 'undefined') {
 
 ;// CONCATENATED MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 const external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject = require("vue");
-;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/contact.vue?vue&type=template&id=58172678&
-var render = function render(){var _vm=this,_c=_vm._self._c;return _c('div',[_c('div',{staticClass:"testoo"},[_vm._v("hello "+_vm._s(_vm.name)+" ("+_vm._s(_vm.counter)+")")]),_c('button',{on:{"click":function($event){_vm.counter++}}},[_vm._v("test")])])
+;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/contact.vue?vue&type=template&id=0d212767&
+var render = function render(){var _vm=this,_c=_vm._self._c;return _c('div',[_c('div',{staticClass:"testoo"},[_vm._v("hello "+_vm._s(_vm.name)+" ("+_vm._s(_vm.counter)+")")]),_c('v-btn',{on:{"click":function($event){_vm.counter++}}},[_vm._v("test")]),_c('br'),_c('br'),_vm._v("Files Input:"),_c('br'),_c('CLoader',{attrs:{"cpn":"FilesInput","SingleFile":""}})],1)
 }
 var staticRenderFns = []
 
@@ -90,10 +90,10 @@ var staticRenderFns = []
 
 ;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/contact.vue?vue&type=script&lang=js&
  /* harmony default export */ const pages_contactvue_type_script_lang_js_ = (contactvue_type_script_lang_js_); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/contact.vue?vue&type=style&index=0&id=58172678&prod&lang=css&
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/contact.vue?vue&type=style&index=0&id=0d212767&prod&lang=css&
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/contact.vue?vue&type=style&index=0&id=58172678&prod&lang=css&
+;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/contact.vue?vue&type=style&index=0&id=0d212767&prod&lang=css&
 
 ;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/runtime/componentNormalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
@@ -214,16 +214,16 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ const contact = (component.exports);
-;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/hello.vue?vue&type=template&id=b4e6bc94&
-var hellovue_type_template_id_b4e6bc94_render = function render(){var _vm=this,_c=_vm._self._c;return _c('div',[_c('div',{staticClass:"testoo"},[_vm._v("hello "+_vm._s(_vm.name)+" ("+_vm._s(_vm.counter)+")")]),_c('button',{on:{"click":function($event){_vm.counter++}}},[_vm._v("test")])])
+;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/hello.vue?vue&type=template&id=7c3358c4&
+var hellovue_type_template_id_7c3358c4_render = function render(){var _vm=this,_c=_vm._self._c;return _c('div',[_c('div',{staticClass:"testoo"},[_vm._v("hello "+_vm._s(_vm.name)+" ("+_vm._s(_vm.counter)+")")]),_c('button',{on:{"click":function($event){_vm.counter++}}},[_vm._v("test")])])
 }
-var hellovue_type_template_id_b4e6bc94_staticRenderFns = []
+var hellovue_type_template_id_7c3358c4_staticRenderFns = []
 
 
 ;// CONCATENATED MODULE: ./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/hello.vue?vue&type=script&lang=js&
 
 /* harmony default export */ const hellovue_type_script_lang_js_ = ({
-  name: 'compiled-contact',
+  name: 'compiled-hello',
   data() {
     return {
       name: "",
@@ -238,10 +238,10 @@ var hellovue_type_template_id_b4e6bc94_staticRenderFns = []
 
 ;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/hello.vue?vue&type=script&lang=js&
  /* harmony default export */ const pages_hellovue_type_script_lang_js_ = (hellovue_type_script_lang_js_); 
-;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/hello.vue?vue&type=style&index=0&id=b4e6bc94&prod&lang=css&
+;// CONCATENATED MODULE: ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./plugins/contact/adminUi/pages/hello.vue?vue&type=style&index=0&id=7c3358c4&prod&lang=css&
 // extracted by mini-css-extract-plugin
 
-;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/hello.vue?vue&type=style&index=0&id=b4e6bc94&prod&lang=css&
+;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/hello.vue?vue&type=style&index=0&id=7c3358c4&prod&lang=css&
 
 ;// CONCATENATED MODULE: ./plugins/contact/adminUi/pages/hello.vue
 
@@ -254,8 +254,8 @@ var hellovue_type_template_id_b4e6bc94_staticRenderFns = []
 
 var hello_component = normalizeComponent(
   pages_hellovue_type_script_lang_js_,
-  hellovue_type_template_id_b4e6bc94_render,
-  hellovue_type_template_id_b4e6bc94_staticRenderFns,
+  hellovue_type_template_id_7c3358c4_render,
+  hellovue_type_template_id_7c3358c4_staticRenderFns,
   false,
   null,
   null,
@@ -269,6 +269,12 @@ var hello_component = normalizeComponent(
   
   
 
+
+  console.log("=============================================");
+  console.log("=============================================");
+  console.log("           contact plugin loaded");
+  console.log("=============================================");
+  console.log("=============================================");
 
   const Components = {
     contact: contact,
