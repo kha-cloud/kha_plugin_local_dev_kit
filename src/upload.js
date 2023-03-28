@@ -59,6 +59,8 @@ const uploadPlugin = async (pluginKey) => {
       },
       compiled: await compileVue(pluginKey),
     };
+    console.log(payload);
+    process.exit(0);
     const response = await axios.put(`${plugin.api}/api/plugins/${plugin.id}`, payload, {
       headers: {
         _token: plugin.token
