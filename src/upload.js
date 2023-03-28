@@ -27,20 +27,20 @@ const getAdminUiConfig = (pluginKey) => {
   return config;
 };
 
-const getPages = (pluginKey) => {
+const getPages = async (pluginKey) => {
   const pluginFolder = getPluginFolder(pluginKey);
   const pagesFolder = path.join(pluginFolder, 'adminUi', 'pages');
   const pageFiles = fs.readdirSync(pagesFolder);
   const pages = pageFiles.map(pageFile => {
     const pageContent = fs.readFileSync(path.join(pagesFolder, pageFile), 'utf8');
     const pageKey = path.parse(pageFile).name;
-    const vueComponent = compileVue(pageContent, { id: (`${pluginKey}-${pageKey}-`+Math.random().toString(36)), filename: `${pageKey}.vue` });
     const page = {
       key: pageKey,
-      vueComponent,
+      code: pageContent,
     };
     return page;
   });
+  // const pluginScript = await compileVue(pluginKey);//, { pluginKey, id: (`${pluginKey}-${pageKey}-`+Math.random().toString(36)), filename: `${pageKey}.vue` });
   return pages;
 };
 
@@ -56,7 +56,8 @@ const uploadPlugin = async (pluginKey) => {
       adminUi: {
         ...adminUiConfig,
         pages
-      }
+      },
+      compiled: await compileVue(pluginKey),
     };
     const response = await axios.put(`${plugin.api}/api/plugins/${plugin.id}`, payload, {
       headers: {

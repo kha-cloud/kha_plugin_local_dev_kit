@@ -19,6 +19,10 @@
     "vue-template-compiler": "^2.7.14"
   },
   "devDependencies": {
-    "@vue/cli": "^5.0.8"
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@vue/cli": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "postcss": "^8.4.21"
   }
 }
