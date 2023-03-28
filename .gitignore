@@ -3,3 +3,4 @@ plugins/*
 !plugins/PLUGINS_DEV_HERE
 test.js
 node_modules
+dist
