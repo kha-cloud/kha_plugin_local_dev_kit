@@ -50,7 +50,7 @@ const uploadPlugin = async (pluginKey) => {
     const pluginInfo = getPluginInfo2(pluginKey);
     const plugin = getPlugin(pluginKey);
     const adminUiConfig = getAdminUiConfig(pluginKey);
-    const pages = getPages(pluginKey);
+    const pages = await getPages(pluginKey);
     const payload = {
       ...pluginInfo,
       adminUi: {
@@ -59,8 +59,6 @@ const uploadPlugin = async (pluginKey) => {
       },
       compiled: await compileVue(pluginKey),
     };
-    console.log(payload);
-    process.exit(0);
     const response = await axios.put(`${plugin.api}/api/plugins/${plugin.id}`, payload, {
       headers: {
         _token: plugin.token
