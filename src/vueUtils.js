@@ -85,7 +85,11 @@ function readCompiledFiles(pluginKey) {
   const cssFile = path.join(componentsDir, `${pluginKey}.css`);
 
   const jsContent = fs.readFileSync(jsFile, "utf8");
-  const cssContent = fs.readFileSync(cssFile, "utf8");
+  var cssContent = "";
+  try {
+    cssContent = fs.readFileSync(cssFile, "utf8");
+  } catch (error) {
+  }
 
   return {
     script: jsContent,
