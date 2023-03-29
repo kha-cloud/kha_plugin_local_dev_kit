@@ -43,7 +43,9 @@ const savePages = (pluginKey, pluginInfo) => {
   // Writing the pages to the plugin folder
   pages.forEach(page => {
     const pageFile = path.join(pluginFolder, "pages" , `${page.key}.vue`);
-    const componentCode = page.vueComponent.original;
+    // console.log(page);
+    // process.exit(0);
+    const componentCode = page.code;
     // const componentCode = decompileVue(page.vueComponent, { filename: `${page.key}.vue`, scoped: true });
     fs.writeFileSync(pageFile, componentCode);
   });
