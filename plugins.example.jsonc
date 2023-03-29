@@ -1,8 +1,8 @@
 [
   {
-    "id": "12fg3n456bn78gf56778fg9",
-    "key": "example",
-    "api": "https://my-app.monocommerce.tn",
-    "token": "eyJ0eXAiOf5d4gh65rth46r5ft4j6yt354jsrgf5uj4g35j4dt654j4dhfgh54jgh35jhg5df35gh43dsf5.df4h35fd4h35.hd1f.5h4fg85h4gh76"
+    "id": "PLUGIN_ID",
+    "key": "example", // Click on your plugin in the administration and copy ID
+    "api": "WEBSITE_LINK", // From Administration Dashboard
+    "token": "ADMINISTRATION_TOKEN"
   }
 ]
