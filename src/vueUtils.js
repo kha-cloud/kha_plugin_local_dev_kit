@@ -94,7 +94,7 @@ function createEntryJsFile(pluginKey) {
 
 async function buildPlugin(pluginKey) {
   return new Promise((resolve, reject) => {
-    const command = `npx vue-cli-service build --target lib --name ${pluginKey} plugins/${pluginKey}/adminUi/pages/entry.js`;
+    const command = `npx vue-cli-service build --target lib --name ${pluginKey} --filename ${pluginKey} plugins/${pluginKey}/adminUi/pages/entry.js`;
     exec(command, (error, stdout, stderr) => {
       if (error) {
         console.error(error.message);
