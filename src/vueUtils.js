@@ -16,16 +16,34 @@ function createEntryJsFile(pluginKey) {
   const componentsDir = path.join(__dirname, "..", "plugins", pluginKey, "adminUi", "pages");
 
   var components = [];
+  var vuetifyComponentsToImport = [];
 
   fs.readdirSync(componentsDir).forEach((file) => {
     if (file.endsWith(".vue")) {
       // delete file extension before adding to components array
       components.push(file.slice(0, -4));
+
+      // Loading the required Vuetify components
+      const componentCode = fs.readFileSync(path.join(componentsDir, file), "utf8");
+      // Search in componentCode for the Vuetify components names prefixed with "<v-" [Important: Components names could only contain upper case and lower case letters and dashes]
+      // const vuetifyComponents = componentCode.match(/v-([a-z]|[A-Z]|-)+/g);
+      const vuetifyComponents = (componentCode.match(/<v-([a-z]|[A-Z]|-)+/g) || []).map((vuetifyComponent) => vuetifyComponent.slice(1));
+      if (vuetifyComponents) {
+        vuetifyComponents.forEach((vuetifyComponent) => {
+          if (!vuetifyComponentsToImport.includes(vuetifyComponent)) {
+            vuetifyComponentsToImport.push(vuetifyComponent);
+          }
+        });
+      }
+
       // const component = require(path.join(componentsDir, file)).default;
       // Components[component.name] = component;
       // console.log(`Component ${component.name} is ready`);
     }
   });
+  // console.log("vuetifyComponentsToImport");
+  // console.log(vuetifyComponentsToImport);
+  // process.exit(0);
 
   const content = `
   import Vue from "vue";
@@ -46,7 +64,9 @@ function createEntryJsFile(pluginKey) {
     console.log("Component "+'${pluginKey}-'+Components[name].name+" is ready");
   })
 
-  $nuxt.$store.dispatch('plugins/pluginLoaded', { key: '${pluginKey}' });
+  const vuetifyComponentsToImport = ${JSON.stringify(vuetifyComponentsToImport)};
+
+  $nuxt.$store.dispatch('plugins/pluginLoaded', { vuetifyComponentsToImport, key: '${pluginKey}' });
 
   export default Components;
   `;
