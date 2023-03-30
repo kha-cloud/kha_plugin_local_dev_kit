@@ -66,7 +66,13 @@ function createEntryJsFile(pluginKey) {
 
   const vuetifyComponentsToImport = ${JSON.stringify(vuetifyComponentsToImport)};
 
-  $nuxt.$store.dispatch('plugins/pluginLoaded', { vuetifyComponentsToImport, key: '${pluginKey}' });
+  $nuxt.$store.dispatch('plugins/pluginLoadRequiredVuetifyComponents', { vuetifyComponentsToImport, key: '${pluginKey}' }).then(() => {
+    
+    $nuxt.$store.dispatch('plugins/pluginLoaded', { key: '${pluginKey}' });
+    
+  });
+
+
 
   export default Components;
   `;
