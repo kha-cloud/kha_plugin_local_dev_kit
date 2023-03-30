@@ -41,6 +41,18 @@ function createEntryJsFile(pluginKey) {
       // console.log(`Component ${component.name} is ready`);
     }
   });
+  // In vuetifyComponentsToImport add all sub components
+  // (e.g. For v-btn-toggle we should add v-btn)
+  // (e.g. For v-ab-cd-ef-gh we should add v-ab-cd-ef and v-ab-cd and v-ab)
+  vuetifyComponentsToImport.forEach((vuetifyComponent) => {
+    const vuetifyComponentParts = vuetifyComponent.split("-");
+    for (let i = 1; i < vuetifyComponentParts.length; i++) {
+      const vuetifyComponentPart = vuetifyComponentParts.slice(0, i).join("-");
+      if (!vuetifyComponentsToImport.includes(vuetifyComponentPart)) {
+        vuetifyComponentsToImport.push(vuetifyComponentPart);
+      }
+    }
+  });
   // console.log("vuetifyComponentsToImport");
   // console.log(vuetifyComponentsToImport);
   // process.exit(0);
@@ -69,7 +81,7 @@ function createEntryJsFile(pluginKey) {
   $nuxt.$store.dispatch('plugins/pluginLoadRequiredVuetifyComponents', { vuetifyComponentsToImport, key: '${pluginKey}' }).then(() => {
     
     $nuxt.$store.dispatch('plugins/pluginLoaded', { key: '${pluginKey}' });
-    
+
   });
 
 
