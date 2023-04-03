@@ -66,6 +66,14 @@ const uploadPlugin = async (pluginKey) => {
     });
     console.log(`Plugin "${pluginKey}" uploaded successfully`);
   } catch (error) {
+    console.log('\x1b[31m\x1b[1m');
+    console.log("One of those errors have occured:");
+    console.log("   1. The plugin ID is incorrect");
+    console.log("   2. The API Token is incorrect");
+    console.log("   3. The Internet connection is not working");
+    console.log("");
+    console.log('\x1b[0m');
+    process.exit(1);
     console.log(error);
   }
 };
