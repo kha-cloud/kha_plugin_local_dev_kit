@@ -19,12 +19,36 @@ const getPluginInfo2 = (pluginKey) => {
   return pluginInfo;
 };
 
+const getApis = (pluginKey) => {
+  const pluginFolder = getPluginFolder(pluginKey);
+  const apisFile = path.join(pluginFolder, 'config', 'apis.jsonc');
+  const apisContent = fs.readFileSync(apisFile, 'utf8');
+  const apis = commentJson.parse(apisContent);
+  return apis;
+};
+
 const getAdminUiConfig = (pluginKey) => {
   const pluginFolder = getPluginFolder(pluginKey);
   const configFile = path.join(pluginFolder, 'adminUi', 'config.jsonc');
   const configContent = fs.readFileSync(configFile, 'utf8');
   const config = commentJson.parse(configContent);
   return config;
+};
+
+const getData = (pluginKey) => {
+  // Get database data (dbSchema)
+  // Get database seed (dbSeed)
+  const pluginFolder = getPluginFolder(pluginKey);
+  const dbSchemaFile = path.join(pluginFolder, 'config', 'database', 'schema.jsonc');
+  const dbSeedFile = path.join(pluginFolder, 'config', 'database', 'seed.jsonc');
+  const dbSchemaContent = fs.readFileSync(dbSchemaFile, 'utf8');
+  const dbSeedContent = fs.readFileSync(dbSeedFile, 'utf8');
+  const dbSchema = commentJson.parse(dbSchemaContent);
+  const dbSeed = commentJson.parse(dbSeedContent);
+  return {
+    dbSchema,
+    dbSeed,
+  };
 };
 
 const getPages = async (pluginKey) => {
@@ -51,12 +75,16 @@ const uploadPlugin = async (pluginKey) => {
     const plugin = getPlugin(pluginKey);
     const adminUiConfig = getAdminUiConfig(pluginKey);
     const pages = await getPages(pluginKey);
+    const apis = getApis(pluginKey);
+    const data = getData(pluginKey);
     const payload = {
       ...pluginInfo,
       adminUi: {
         ...adminUiConfig,
         pages
       },
+      apis,
+      data,
       compiled: await compileVue(pluginKey),
     };
     const response = await axios.put(`${plugin.api}/api/plugins/${plugin.id}`, payload, {
