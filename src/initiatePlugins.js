@@ -22,7 +22,7 @@ const initiatePlugins = async () => {
     const pluginFolder = path.join(pluginsFolder, plugin.key);
 
     if (fs.existsSync(pluginFolder)) {
-      console.log(`Skipping ${plugin.name} (${plugin.id}) - folder already exists`);
+      console.log(`Skipping ${plugin.key} (${plugin.id}) - folder already exists`);
       continue;
     }
 

@@ -7,6 +7,23 @@ const { decompileVue } = require('./vueUtils');
 
 const pluginsFolder = path.join(__dirname, '..', 'plugins');
 
+const saveApi = (pluginKey, pluginInfo) => {
+  const pluginFolder = path.join(pluginsFolder, pluginKey, 'config', 'apis.jsonc');
+  const apis = pluginInfo.apis;
+  const apisContent = JSON.stringify(apis, null, 2);
+  fs.writeFileSync(pluginFolder, apisContent);
+};
+
+const saveData = (pluginKey, pluginInfo) => {
+  const pluginFolder = path.join(pluginsFolder, pluginKey, 'config', 'database');
+  const data = pluginInfo.data;
+  const dbSchemaFile = path.join(pluginFolder, 'schema.jsonc');
+  const dbSeedFile = path.join(pluginFolder, 'seed.jsonc');
+  const dbSchemaContent = JSON.stringify(data.dbSchema, null, 2);
+  const dbSeedContent = JSON.stringify(data.dbSeed, null, 2);
+  fs.writeFileSync(dbSchemaFile, dbSchemaContent);
+  fs.writeFileSync(dbSeedFile, dbSeedContent);
+};
 
 const savePluginInfo = (pluginKey, pluginInfo) => {
   const pluginFolder = path.join(pluginsFolder, pluginKey);
@@ -67,6 +84,8 @@ const pullPlugin = async (pluginKey) => {
     if (pluginInfo.adminUi && pluginInfo.adminUi.pages) {
       savePages(pluginKey, pluginInfo);
     }
+    saveApi(pluginKey, pluginInfo);
+    saveData(pluginKey, pluginInfo);
     console.log(`Plugin "${pluginKey}" pulled successfully`);
   } catch (error) {
     console.log(error);
