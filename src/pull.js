@@ -21,8 +21,8 @@ const saveData = (pluginKey, pluginInfo) => {
   const dbSeedFile = path.join(pluginFolder, 'seed.jsonc');
   const dbSchemaContent = JSON.stringify(data.dbSchema, null, 2);
   const dbSeedContent = JSON.stringify(data.dbSeed, null, 2);
-  fs.writeFileSync(dbSchemaFile, dbSchemaContent);
-  fs.writeFileSync(dbSeedFile, dbSeedContent);
+  fs.writeFileSync(dbSchemaFile, dbSchemaContent || '[]');
+  fs.writeFileSync(dbSeedFile, dbSeedContent || '[]');
 };
 
 const savePluginInfo = (pluginKey, pluginInfo) => {
