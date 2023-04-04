@@ -52,12 +52,12 @@ const initiatePlugins = async () => {
       fs.writeFileSync(path.join(pluginFolder, 'config', 'triggers.jsonc'), JSON.stringify(triggers, null, 2));
       
       fs.mkdirSync(path.join(pluginFolder, 'config', 'database'));
-      fs.writeFileSync(path.join(pluginFolder, 'config', 'database', 'schema.jsonc'), '{}');
-      fs.writeFileSync(path.join(pluginFolder, 'config', 'database', 'seed.jsonc'), '{}');
+      fs.writeFileSync(path.join(pluginFolder, 'config', 'database', 'schema.jsonc'), '[]');
+      fs.writeFileSync(path.join(pluginFolder, 'config', 'database', 'seed.jsonc'), '[]');
       
       fs.mkdirSync(path.join(pluginFolder, 'config', 'settings'));
-      fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'schema.jsonc'), '{}');
-      fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'data.jsonc'), '{}');
+      fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'schema.jsonc'), '[]');
+      fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'data.jsonc'), '[]');
 
       console.log(`\tInitiated ${name} (${key})`);
     } catch (error) {
