@@ -5,6 +5,7 @@
   "main": "run.js",
   "scripts": {
     "fetch": "node run.js fetch",
+    "disable": "node run.js disable",
     "pull": "node run.js pull",
     "upload": "node run.js upload",
     "test": "echo \"Error: no test specified\" && exit 1"
