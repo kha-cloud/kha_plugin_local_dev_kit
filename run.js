@@ -2,7 +2,7 @@ const initiatePlugins = require('./src/initiatePlugins');
 const pullPlugin = require('./src/pull');
 const uploadPlugin = require('./src/upload');
 const disable = require('./src/disable');
-const z = require('./src/z');
+const deletePlugin = require('./src/delete');
 
 const command = process.argv[2];
 
