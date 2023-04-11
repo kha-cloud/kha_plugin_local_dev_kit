@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const commentJson = require('comment-json');
+const pullPlugin = require('./pull');
 
 const pluginsFilePath = path.join(__dirname, '..', 'plugins.jsonc');
 if(!fs.existsSync(pluginsFilePath)) {
@@ -58,6 +59,9 @@ const initiatePlugins = async () => {
       fs.mkdirSync(path.join(pluginFolder, 'config', 'settings'));
       fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'schema.jsonc'), '[]');
       fs.writeFileSync(path.join(pluginFolder, 'config', 'settings', 'data.jsonc'), '[]');
+
+      // Pull plugin
+      await pullPlugin(plugin.key);
 
       console.log(`\tInitiated ${name} (${key})`);
     } catch (error) {
