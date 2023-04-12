@@ -73,12 +73,14 @@ const getPages = async (pluginKey) => {
 
 const uploadPlugin = async (pluginKey) => {
   try {
-    const pluginInfo = getPluginInfo2(pluginKey);
+    var pluginInfo = getPluginInfo2(pluginKey);
     const plugin = getPlugin(pluginKey);
     const adminUiConfig = getAdminUiConfig(pluginKey);
     const pages = await getPages(pluginKey);
     const apis = getApis(pluginKey);
     const data = getData(pluginKey);
+    delete pluginInfo.enabled;
+    delete pluginInfo.installed;
     const payload = {
       ...pluginInfo,
       adminUi: {
