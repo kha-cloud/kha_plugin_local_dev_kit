@@ -15,7 +15,9 @@ const getPluginInfo2 = (pluginKey) => {
   const pluginFolder = getPluginFolder(pluginKey);
   const pluginFile = path.join(pluginFolder, 'plugin.jsonc');
   const pluginContent = fs.readFileSync(pluginFile, 'utf8');
-  const pluginInfo = commentJson.parse(pluginContent);
+  var pluginInfo = commentJson.parse(pluginContent);
+  delete pluginInfo.enabled;
+  delete pluginInfo.installed;
   return pluginInfo;
 };
 
